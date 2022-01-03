@@ -3,8 +3,7 @@ import styles from "../styles/dogPage.module.css";
 import Link from "next/link";
 
 export async function getServerSideProps() {
-  const dogApi = useDogApi();
-  const response = await dogApi.getRandomDog(50);
+  const response = await useDogApi().getRandomDog(50);
 
   return {
     props: {
