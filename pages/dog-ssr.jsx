@@ -1,13 +1,17 @@
-import { useDogApi } from "./api/useDogApi";
 import styles from "../styles/dogPage.module.css";
 import Link from "next/link";
+import axios from "axios";
 
 export async function getServerSideProps() {
-  const response = await useDogApi().getRandomDog(50);
+  const response = await axios.get(
+    "https://dog.ceo/api/breeds/image/random/50"
+  );
+
+  console.log(response.data.message);
 
   return {
     props: {
-      dogs: response.message,
+      dogs: response.data.message,
     },
   };
 }
