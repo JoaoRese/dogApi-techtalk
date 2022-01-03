@@ -2,8 +2,9 @@ import { useDogApi } from "./api/useDogApi";
 import styles from "../styles/dogPage.module.css";
 import Link from "next/link";
 
+const dogApi = useDogApi();
+
 export async function getServerSideProps() {
-  const dogApi = useDogApi();
   const response = await dogApi.getRandomDog(50);
 
   return {
