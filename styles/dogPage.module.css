@@ -1,0 +1,41 @@
+.list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.list > li {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 3px solid black;
+  transition: 0.2s;
+}
+
+.list > li > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.list > li:hover {
+  transform: scale(1.1);
+}
+
+.link {
+  display: flex;
+  position: fixed;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  padding-right: 10px;
+  border-radius: 0px 0px 15px 0px;
+  margin: 0;
+  top: 0;
+}
