@@ -6,17 +6,12 @@ import axios from "axios";
 
 export default function Dog() {
   const [dogs, setDogs] = useState([]);
-  const [facts, setFacts] = useState([]);
   const dogApi = useDogApi();
 
   useEffect(() => {
     async function getDogs() {
       const response = await dogApi.getRandomDog(50);
-      const dogFacts = await axios.get(
-        "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=50"
-      );
       setDogs(response.message);
-      setFacts(dogFacts.data);
     }
 
     getDogs();
@@ -26,7 +21,6 @@ export default function Dog() {
     return (
       <li key={index}>
         <img src={dog} alt="" />
-        <p>{facts[index].fact}</p>
       </li>
     );
   });

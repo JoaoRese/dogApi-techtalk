@@ -8,34 +8,24 @@
 }
 
 .list > li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 300px;
-  height: 400px;
-}
-
-.list > li > img {
-  object-fit: cover;
-  object-position: center;
-  overflow: hidden;
-  border: 3px solid black;
   width: 200px;
   height: 200px;
   margin: 20px;
   border-radius: 15px;
+  overflow: hidden;
+  border: 3px solid black;
   transition: 0.2s;
 }
 
-.list > li > img:hover {
-  transform: scale(1.1);
+.list > li > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-.list > li > p {
-  color: black;
-  width: 200px;
-  max-height: 100px;
-  overflow-y: auto;
+.list > li:hover {
+  transform: scale(1.1);
 }
 
 .link {
