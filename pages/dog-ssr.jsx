@@ -3,24 +3,26 @@ import Link from "next/link";
 import axios from "axios";
 
 export async function getServerSideProps() {
-  const response = await axios.get(
-    "https://dog.ceo/api/breeds/image/random/50"
-  );
+  const dogPics = await axios.get("https://dog.ceo/api/breeds/image/random/50");
 
-  console.log(response.data.message);
+  const dogFacts = await axios.get(
+    "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=50"
+  );
 
   return {
     props: {
-      dogs: response.data.message,
+      dogs: dogPics.data.message,
+      facts: dogFacts.data,
     },
   };
 }
 
-export default function Dog({ dogs }) {
+export default function Dog({ dogs, facts }) {
   const list = dogs.map((dog, index) => {
     return (
       <li key={index}>
         <img src={dog} alt="" />
+        <p>{facts[index].fact}</p>
       </li>
     );
   });
